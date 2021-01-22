@@ -1,41 +1,36 @@
 package kata2_command;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
 public class GamingPadHandler {
 
-private final GamingPadButton buttonA = new GamingPadButtonHandler("A");
-private final GamingPadButton buttonB = new GamingPadButtonHandler("B");
-private final GamingPadButton buttonY = new GamingPadButtonHandler("Y");
-private final GamingPadButton buttonX = new GamingPadButtonHandler("X");
-private final Command buttonACommand, buttonBCommand, buttonYCommand, buttonXCommand;
+private final Command defaultCommand;
+private final Map<String, GamingPadButton> buttons = new HashMap<>();
+private final Map<GamingPadButton, Command> actions = new HashMap<>();
 
-    public GamingPadHandler(Command buttonACommand, Command buttonBCommand, Command buttonYCommand, Command buttonXCommand) {
-        this.buttonACommand = buttonACommand;
-        this.buttonBCommand = buttonBCommand;
-        this.buttonYCommand = buttonYCommand;
-        this.buttonXCommand = buttonXCommand;
+    GamingPadHandler(Supplier<Command> defaultCommandSupplier) {
+        defaultCommand =  defaultCommandSupplier.get();
+        addButtons();
     }
-
 
     void handlerInput() {
-        if(this.buttonA.isPressed())buttonACommand.execute();
-        if(this.buttonB.isPressed())buttonBCommand.execute();
-        if(this.buttonX.isPressed())buttonYCommand.execute();
-        if(this.buttonY.isPressed())buttonXCommand.execute();
+        buttons.values().forEach(this::handleButton);
+    }
+    private void handleButton(GamingPadButton button) {
+        if(button.isPressed())actions.getOrDefault(button,defaultCommand ).execute();
     }
 
-    private void swapWeapon() {
-        System.out.println("WeaponSwapped");
+    private void addButtons() {
+        buttons.put("A",new GamingPadButtonHandler("A"));
+        buttons.put("B",new GamingPadButtonHandler("B"));
+        buttons.put("Y",new GamingPadButtonHandler("Y"));
+        buttons.put("X",new GamingPadButtonHandler("X"));
     }
-
-    private void lurch() {
-        System.out.println("lurch");
+    public void addCommand(String buttonName, Command command){
+        if(buttons.containsKey(buttonName)){
+            actions.put(buttons.get(buttonName), command);   
+        }
     }
-
-    private void jump() {
-        System.out.println("jump");
-    }
-
-    private void fire() {
-        System.out.println("fireGun");
-    }
-    
 }
