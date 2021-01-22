@@ -10,12 +10,12 @@ private final Command defaultCommand;
 private final Map<String, GamingPadButton> buttons = new HashMap<>();
 private final Map<GamingPadButton, Command> actions = new HashMap<>();
 
-    GamingPadHandler(Supplier<Command> defaultCommandSupplier) {
+    public GamingPadHandler(Supplier<Command> defaultCommandSupplier) {
         defaultCommand =  defaultCommandSupplier.get();
         addButtons();
     }
 
-    void handlerInput() {
+    public void handlerInput() {
         buttons.values().forEach(this::handleButton);
     }
     private void handleButton(GamingPadButton button) {

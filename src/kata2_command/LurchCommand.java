@@ -14,7 +14,7 @@ public class LurchCommand implements Command{
 
     @Override
     public void execute() {
-        System.out.println("lurching");
+        gameActor.lurch();
     }
     
 }

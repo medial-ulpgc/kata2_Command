@@ -14,7 +14,7 @@ public class SwapWeaponCommand implements Command{
 
     @Override
     public void execute() {
-        gameActor.fire();
+        gameActor.swapWeapon();
     }
     
 }

@@ -1,4 +1,8 @@
-package kata2_command;
+package kata2_command.app;
+
+import kata2_command.*;
+
+
 public class Main {
     public static void main(String[] args) {
         GameActor archer = new GameActor() {
