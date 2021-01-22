@@ -1,6 +1,10 @@
 package kata2_command.app;
 
-import kata2_command.*;
+import kata2_command.controller.SwapWeaponCommand;
+import kata2_command.controller.JumpCommand;
+import kata2_command.controller.FireGunCommand;
+import kata2_command.controller.LurchCommand;
+import kata2_command.Model.GameActor;
 
 
 public class Main {
@@ -27,7 +31,7 @@ public class Main {
             }
         };
         
-        GamingPadHandler gamingPadHandler = new GamingPadHandler( ()->new NullCommand() );
+        GamingPadHandler gamingPadHandler = new GamingPadHandler();
         
         gamingPadHandler.addCommand("A", new JumpCommand(archer));
         gamingPadHandler.addCommand("B", new FireGunCommand(archer));

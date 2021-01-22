@@ -1,4 +1,7 @@
-package kata2_command;
+package kata2_command.controller;
+
+import kata2_command.controller.Command;
+import kata2_command.Model.GameActor;
 
 public class FireGunCommand implements Command{
 

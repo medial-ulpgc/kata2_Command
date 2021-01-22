@@ -1,4 +1,4 @@
-package kata2_command;
+package kata2_command.controller;
 public interface Command {
     public void execute();
 }

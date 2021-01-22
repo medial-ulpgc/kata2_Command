@@ -1,17 +1,17 @@
-package kata2_command;
+package kata2_command.app;
 
+import kata2_command.Model.GamingPadButton;
+import kata2_command.controller.Command;
+import kata2_command.controller.NullCommand;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
-
 public class GamingPadHandler {
 
-private final Command defaultCommand;
+private final Command defaultCommand = new NullCommand();
 private final Map<String, GamingPadButton> buttons = new HashMap<>();
 private final Map<GamingPadButton, Command> actions = new HashMap<>();
 
-    public GamingPadHandler(Supplier<Command> defaultCommandSupplier) {
-        defaultCommand =  defaultCommandSupplier.get();
+    public GamingPadHandler() {
         addButtons();
     }
 

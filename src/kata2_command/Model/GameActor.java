@@ -1,4 +1,4 @@
-package kata2_command;
+package kata2_command.Model;
 public interface GameActor {
 public void jump();
 public void swapWeapon();

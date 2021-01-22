@@ -1,7 +1,8 @@
-package kata2_command;
+package kata2_command.controller;
 
 
-import kata2_command.Command;
+import kata2_command.Model.GameActor;
+import kata2_command.controller.Command;
 
 
 public class LurchCommand implements Command{
