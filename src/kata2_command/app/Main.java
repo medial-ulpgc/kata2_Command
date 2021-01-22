@@ -5,31 +5,12 @@ import kata2_command.controller.JumpCommand;
 import kata2_command.controller.FireGunCommand;
 import kata2_command.controller.LurchCommand;
 import kata2_command.Model.GameActor;
+import kata2_command.view.GameActorCommandLine;
 
 
 public class Main {
     public static void main(String[] args) {
-        GameActor archer = new GameActor() {
-            @Override
-            public void jump() {
-                System.out.println("archer jumps");
-            }
-
-            @Override
-            public void swapWeapon() {
-                System.out.println("archer changes his weapon");
-            }
-
-            @Override
-            public void fire() {
-                System.out.println("archer throws an arrow");
-            }
-
-            @Override
-            public void lurch() {
-                System.out.println("archer lurches");
-            }
-        };
+        GameActor archer = new GameActorCommandLine("Player 1");
         
         GamingPadHandler gamingPadHandler = new GamingPadHandler();
         

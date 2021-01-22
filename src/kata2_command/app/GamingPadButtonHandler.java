@@ -12,7 +12,7 @@ private final String buttonID;
     @Override
     public boolean isPressed() {
     final double random = Math.random();
-    boolean pressed = random<(1./10000000);
+    boolean pressed = random<(1./1000000000);
         
         return pressed;
         
